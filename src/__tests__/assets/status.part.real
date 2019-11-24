@@ -1,0 +1,69 @@
+Package: libc6
+Status: install ok installed
+Multi-Arch: same
+Priority: required
+Section: libs
+Installed-Size: 10412
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: amd64
+Source: eglibc
+Version: 2.15-0ubuntu10.3
+Replaces: belocs-locales-bin, libc6-amd64
+Provides: glibc-2.13-1
+Depends: libc-bin (= 2.15-0ubuntu10.3), libgcc1, tzdata
+Suggests: glibc-doc, debconf | debconf-2.0, locales
+Breaks: nscd (<< 2.15)
+Conflicts: belocs-locales-bin, libc6-amd64, prelink (<< 0.0.20090925), tzdata (<< 2007k-1), tzdata-etch
+Conffiles:
+ /etc/ld.so.conf.d/x86_64-linux-gnu.conf 593ad12389ab2b6f952e7ede67b8fbbf
+Description: Embedded GNU C Library: Shared libraries
+ Contains the standard libraries that are used by nearly all programs on
+ the system. This package includes shared versions of the standard C library
+ and the standard math library, as well as many others.
+Homepage: http://www.eglibc.org
+Original-Maintainer: GNU Libc Maintainers <debian-glibc@lists.debian.org>
+
+Package: libsm6
+Status: install ok installed
+Multi-Arch: same
+Priority: optional
+Section: libs
+Installed-Size: 77
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: amd64
+Source: libsm
+Version: 2:1.2.0-2build1
+Depends: libc6 (>= 2.14), libice6 (>= 1:1.0.0), libuuid1 (>= 2.16)
+Pre-Depends: multiarch-support
+Description: X11 Session Management library
+ This package provides the main interface to the X11 Session Management
+ library, which allows for applications to both manage sessions, and make use
+ of session managers to save and restore their state for later use.
+ .
+ More information about X.Org can be found at:
+ <URL:http://www.X.org>
+ .
+ This module can be found at
+ git://anongit.freedesktop.org/git/xorg/lib/libSM
+Original-Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+
+Package: grub2-common
+Status: install ok installed
+Multi-Arch: foreign
+Priority: optional
+Section: admin
+Installed-Size: 139
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: amd64
+Source: grub2
+Version: 1.99-21ubuntu3.7
+Replaces: grub, grub-common (<< 1.99-1), grub-coreboot (<< 1.99-1), grub-efi (<< 1.99-1), grub-efi-amd64 (<< 1.99-1), grub-efi-ia32 (<< 1.99-1), grub-ieee1275 (<< 1.99-1), grub-legacy, grub-linuxbios (<< 1.99-1), grub-pc (<< 1.99-1), grub-yeeloong (<< 1.99-1)
+Depends: grub-common (= 1.99-21ubuntu3.7), dpkg (>= 1.15.4) | install-info
+Conflicts: grub (<< 0.97-54), grub-doc (<< 0.97-29ubuntu60), grub-legacy, grub-legacy-doc (<< 0.97-29ubuntu60)
+Description: GRand Unified Bootloader (common files for version 2)
+ This package contains common files shared by the distinct flavours of GRUB.
+ The files in this package are specific to GRUB 2, and would break GRUB
+ Legacy if installed on the same system.
+Homepage: http://www.gnu.org/software/grub/
+Original-Maintainer: GRUB Maintainers <pkg-grub-devel@lists.alioth.debian.org>
+

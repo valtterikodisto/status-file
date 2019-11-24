@@ -1,0 +1,14 @@
+doctype=html
+html
+  head
+    style
+      include css/index.css
+    title Status file
+  body
+    h1.page-title Packages
+    small.file-path File: #{statusFilePath}
+
+    ul.packages
+      each pack in packages
+        li
+          a(href=`/package/${pack.name}`)= pack.name

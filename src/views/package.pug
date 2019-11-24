@@ -1,0 +1,49 @@
+mixin packageListItem(pack)
+  if pack.alternatives && pack.alternatives.length > 0
+    ul.alternatives
+      +packageListLink(pack.name, pack.link)
+      each alternative in pack.alternatives
+        +packageListLink(alternative.name, alternative.link)
+  else
+    +packageListLink(pack.name, pack.link)
+
+mixin packageListLink(name, link)
+  if link
+    li.single
+      a(href=`/package/${name}`)= name
+  else
+    li.single #{name}
+            
+
+doctype=html
+html
+  head
+    style
+      include css/index.css
+    title #{name}
+  body
+    div.package
+      a.link.home-link(href="/") Home
+      h3.package-title #{name}
+
+      h4 Description
+      if description
+        div.description
+          each line in description
+            if line === '.'
+              br
+            else
+              = line
+              br
+
+      h4 Dependencies
+      if dependencies
+        ul.dependencies
+          each dependency in dependencies
+            +packageListItem(dependency)
+
+      h4 Dependants
+      if dependants
+        ul.dependants
+          each dependant in dependants
+            +packageListItem(dependant)
