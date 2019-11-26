@@ -15,6 +15,11 @@ Clone the project:
 git clone https://github.com/valtterikodisto/status-file
 ```
 
+Install dependencies:
+```
+cd status-file && npm install
+```
+
 ## Get it up and running
 
 If you <strong>have</strong> status file in `/var/lib/dpkg` you can just hit:
