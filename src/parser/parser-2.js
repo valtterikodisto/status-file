@@ -8,25 +8,21 @@ const parse = path => {
     .split(/\n\s*\n/)
     .map(
       _.compose(
-        reduceLineObjects,
-        map(_.compose(lineArrayToObject, removeEmpty, splitKeyValue)),
-        split('\n')
+        combineMultiline,
+        _.map(_.compose(lineArrayToObject, removeEmpty, splitKeyValue)),
+        _.split('\n')
       )
     )
 }
 
-const map = fn => arr => arr.map(fn)
+const splitKeyValue = _.split(/:\s*(.+)/)
 
-const split = what => string => string.split(what)
-const splitKeyValue = split(/:\s*(.+)/)
-
-const filter = fn => arr => arr.filter(fn)
-const removeEmpty = filter(str => !!str)
+const removeEmpty = _.filter(str => !!str)
 
 const lineArrayToObject = arr =>
   arr.length === 1 ? { value: arr[0] } : { key: arr[0], value: arr[1] }
 
-const reduceLineObjects = _.reduce((lines, lineObject) => {
+const combineMultiline = _.reduce((lines, lineObject) => {
   if (lineObject.key) {
     return lines.concat(lineObject)
   }
